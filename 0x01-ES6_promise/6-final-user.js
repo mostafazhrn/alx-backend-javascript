@@ -6,7 +6,7 @@ export default async function handleProfileSignup(firstName, lastName, filename)
     status: 'pending',
     value: '',
   };
-  const photo = {
+  const foto = {
     status: 'pending',
     value: '',
   };
@@ -20,11 +20,11 @@ export default async function handleProfileSignup(firstName, lastName, filename)
   }
   try {
     const photoUpload = await uploadPhoto(filename);
-    photo.status = 'fulfilled';
-    photo.value = photoUpload;
+    foto.status = 'fulfilled';
+    foto.value = photoUpload;
   } catch (error) {
-    photo.status = 'rejected';
-    photo.value = error.toString();
+    foto.status = 'rejected';
+    foto.value = error.toString();
   }
-  return { usr, photo };
+  return { usr, foto };
 }
