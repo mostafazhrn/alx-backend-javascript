@@ -1,0 +1,1 @@
+This is a readme file for the task 0x01-ES6_promise which consists of 10 mandatory tasks and 1 advanced as followsas part of the short specialization course for alx SE
