@@ -5,31 +5,12 @@ export default class Car {
     this._color = color;
   }
 
-  get brand() {
-    return this._brand;
-  }
-
-  set brand(nuevoBrand) {
-    this._brand = nuevoBrand;
-  }
-
-  get motor() {
-    return this._motor;
-  }
-
-  set motor(nuevoMotor) {
-    this._motor = nuevoMotor;
-  }
-
-  get color() {
-    return this._color;
-  }
-
-  set color(nuevoColor) {
-    this._color = nuevoColor;
+  static get [Symbol.species]() {
+    return this;
   }
 
   cloneCar() {
-    return new Car(this._brand, this._motor, this._color);
+    const MkCar = this.constructor[Symbol.species];
+    return new MkCar();
   }
 }
