@@ -23,7 +23,7 @@ function countStudents(path) {
           sujs[studs[x][3]].push(studs[x][0]);
         }
       }
-      delete subjects.subject;
+      delete sujs.subject;
       for (const cle of Object.keys(sujs)) {
         ms = `Number of students in ${cle}: ${sujs[cle].length}. List: ${sujs[cle].join(', ')}`;
         console.log(ms);
