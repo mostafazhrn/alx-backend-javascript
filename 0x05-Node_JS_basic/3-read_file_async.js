@@ -30,8 +30,8 @@ function countStudents(path) {
         }. List: ${sujs[cle].join(', ')}`;
         console.log(ms);
         msgs.push(ms);
-        }
-        res(msgs);
+      }
+      res(msgs);
     });
   };
   return new Promise(promise);
