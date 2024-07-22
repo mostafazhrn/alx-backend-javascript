@@ -7,20 +7,31 @@ function countStudents(path) {
         rej(new Error('Cannot load the database'));
         return;
       }
-      const donne = data.split('\n');
-      console.log(`Number of students: ${donne.length - 1}`);
+      const msgs = [];
+      let ms;
+      const cont = data.toString().split('\n');
+      let studs = cont.filter((item) => item);
+      studs = studs.map((item) => item.split(','));
+      const nStuds = studs.length ? studs.length - 1 : 0;
+      ms = `Number of students: ${nStuds}`;
+      console.log(ms);
+      msgs.push(ms);
       const sujs = {};
-      for (const row of donne) {
-        const student = row.split(',');
-        if (!sujs[student[3]]) sujs[student[3]] = [];
-        sujs[student[3]].push(student[0]);
+      for (const x in studs) {
+        if (x !== 0) {
+          if (!sujs[studs[x][3]]) sujs[studs[x][3]] = [];
+          sujs[studs[x][3]].push(studs[x][0]);
+        }
       }
-      for (const suj in sujs) {
-        if (suj) console.log(`Number of students in ${suj}: ${sujs[suj].length}. List: ${sujs[suj].join(', ')}`);
+      delete subjects.subject;
+      for (const cle of Object.keys(sujs)) {
+        ms = `Number of students in ${cle}: ${sujs[cle].length}. List: ${sujs[cle].join(', ')}`;
+        console.log(ms);
+        msgs.push(ms);
       }
-      res();
+      res(msgs);
     });
-  }
+  };
   return new Promise(promise);
 }
 module.exports = countStudents;
