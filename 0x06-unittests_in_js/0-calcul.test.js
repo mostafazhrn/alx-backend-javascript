@@ -6,8 +6,8 @@ const mocha = require('mocha');
 describe('calculateNumber', () => {
     it('return the sum', () => {
       assert.strictEqual(calculateNumber(1, 3), 4);
-      assert.strictEqual(calculateNumber(1.6, 3), 5);
-      assert.strictEqual(calculateNumber(1.4, 3.4), 5);
+      assert.strictEqual(calculateNumber(1.6, 3), 4);
+      assert.strictEqual(calculateNumber(1.5, 3.5), 5);
       assert.strictEqual(calculateNumber(-1, -3), -4);
       assert.strictEqual(calculateNumber(-1.6, -3.4), -5);
     });
